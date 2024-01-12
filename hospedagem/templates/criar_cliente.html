@@ -6,12 +6,15 @@
     <title>Criar Cliente</title>
 </head>
 <body>
+    
     <h1>Criar Cliente</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Criar Cliente</button>
     </form>
+
+
 </body>
 </html>
 

@@ -1,0 +1,39 @@
+<!-- listar_clientes.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Listar Clientes</title>
+</head>
+<body>
+    <h1>Listar Clientes</h1>
+    
+    <ul>
+        {% for cliente in clientes %}
+            <li>{{ cliente.nome }}</li>
+            <li>{{ cliente.cpf }}</li>
+            <li>{{ cliente.data_entrada }}</li>
+            <li>{{ cliente.data_saida }}</li>
+
+            <h2>Editar Cliente</h2>
+            <a href="{% url 'editar_cliente' pk=cliente.pk %}"><button type="button">Editar</button></a>
+            
+            
+            <h2>Deletar Cliente</h2>
+            <form method="post" action="{% url 'deletar_cliente' pk=cliente.pk %}">
+                {% csrf_token %}
+                <button type="submit" onclick="return confirm('Tem certeza que deseja deletar o cliente?')">Deletar</button>
+            </form>
+
+       
+
+                
+
+        
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
+
+
